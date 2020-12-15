@@ -1,0 +1,20 @@
+<h1>Editing movie</h1>
+
+<form action="/mdb/movies/edit/<%=movie.name%>" method="post">
+    <label for="name">Name of the Movie</label>
+    <input required type="text" value="<%= movie.name %>" name="name" placeholder="Name">
+
+    <label for="duration">Duration(in minutes)</label>
+    <input required type="number" value="<%= movie.duration %>" name="duration" placeholder="Duration">
+    
+    <label for="language">Language</label>
+    <input required type="text" value="<%= movie.language %>" name="language" placeholder="Language">
+
+    <label for="releaseDate">Release date</label>
+    <input required type="date" value="<%= movie.releaseDate %>" name="releaseDate" placeholder="Release date">
+
+    <input required type="submit" value="Edit Movie">
+</form>
+
+<br>
+<a href="/mdb/">Home</a>

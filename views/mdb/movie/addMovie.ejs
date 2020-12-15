@@ -1,0 +1,20 @@
+<h1>Add a Movie</h1>
+
+<form action="/mdb/addMovie" method="post">
+    <label for="name">Name of the Movie</label>
+    <input required type="text" name="name" placeholder="Name">
+
+    <label for="duration">Duration(in minutes)</label>
+    <input required type="number" name="duration" placeholder="Duration">
+    
+    <label for="language">Language</label>
+    <input required type="text" name="language" placeholder="Language">
+
+    <label for="releaseDate">Release date</label>
+    <input required type="date" name="releaseDate" placeholder="Release date">
+
+    <input required type="submit" value="Add Movie">
+</form>
+
+<br>
+<a href="/mdb/">Home</a>

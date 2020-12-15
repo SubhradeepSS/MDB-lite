@@ -32,7 +32,7 @@ const handleSignup = (req, res) => {
             // console.log(user);
             if (user) {
                 errors.push({ msg: 'username already registered' });
-                res.render('signup', {
+                res.render('auth/signup', {
                     errors: errors,
                     name: name,
                     email: email,

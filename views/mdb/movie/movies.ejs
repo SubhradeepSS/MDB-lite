@@ -1,0 +1,12 @@
+<h1>All Movies</h1>
+
+<ul>
+    <% for(let movie of movies) { %>
+        <li>
+            <a href="/mdb/movies/<%= movie.name %>"><%= movie.name %> </a>
+        </li> 
+    <% } %>
+</ul>
+ 
+<br>
+<a href="/mdb/">Home</a>

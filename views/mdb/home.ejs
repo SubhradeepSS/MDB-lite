@@ -1,2 +1,11 @@
-<p> Welcome <%= user.name %></p>
+<h1> Welcome <%= user.name %></h1>
+
+<% if(user.username === 'admin') { %>
+    <a href="/mdb/addMovie">Add Movie</a>
+<% } %>
+
+<br>
+<a href="/mdb/movies">All Movies</a>
+
+<br>
 <a href="/auth/logout">Logout</a>
