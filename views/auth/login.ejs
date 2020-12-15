@@ -1,7 +1,7 @@
 <h1> Login </h1>
-<%- include ('./partials/messages') %>
+<%- include ('../partials/messages') %>
 
-<form action="/users/login" method="POST">
+<form action="/auth/login" method="POST">
     <div>
         <label for="username">Username</label>
         <input type="text" name="username" placeholder="Username" />
@@ -14,4 +14,4 @@
     <button type="submit" class="btn btn-primary btn-block">Login</button>
 </form>
 
-<a href="/users/signup">Signup</a>
+<a href="/auth/signup">Signup</a>

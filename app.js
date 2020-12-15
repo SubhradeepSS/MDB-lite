@@ -1,6 +1,5 @@
 const mongoose = require('mongoose')
 const express = require('express')
-const router = express.Router()
 const expressEjsLayout = require('express-ejs-layouts')
 const session = require('express-session');
 const flash = require('connect-flash');
@@ -8,7 +7,6 @@ const passport = require('passport');
 require("./conf/passport")(passport)
 
 const db = require('./config/creds')
-
 const app = express()
 const port = 3000
 
@@ -22,15 +20,14 @@ mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
 
 
 app.set('view engine', 'ejs');
+
 app.use(expressEjsLayout)
 app.use(express.urlencoded({ extended: false }))
-//express session
 app.use(session({
     secret: 'secret',
     resave: true,
     saveUninitialized: true
 }));
-//use flash
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -44,7 +41,8 @@ app.use((req, res, next) => {
 
 
 app.use('/', require('./routes/index'))
-app.use('/users', require('./routes/users'))
+app.use('/auth', require('./routes/auth'))
+app.use('/mdb', require('./routes/mdb'))
 
 app.use((req, res) => {
     res.status(400).render('404')

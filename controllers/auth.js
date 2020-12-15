@@ -54,7 +54,7 @@ const handleSignup = (req, res) => {
                                 .then((value) => {
                                     // console.log(value)
                                     req.flash('success_msg', 'You have now registered!')
-                                    res.redirect('/users/login');
+                                    res.redirect('/auth/login');
                                 })
                                 .catch(value => console.log(value));
 
@@ -68,8 +68,8 @@ const handleSignup = (req, res) => {
 
 const handleLogin = (req, res, next) => {
     passport.authenticate('local', {
-        successRedirect: '/home',
-        failureRedirect: '/users/login',
+        successRedirect: '/mdb',
+        failureRedirect: '/auth/login',
         failureFlash: true,
     })(req, res, next);
 }
@@ -78,7 +78,7 @@ const handleLogin = (req, res, next) => {
 const handleLogout = (req, res) => {
     req.logout();
     req.flash('success_msg', 'Now logged out');
-    res.redirect('/users/login');
+    res.redirect('/auth/login');
 }
 
 

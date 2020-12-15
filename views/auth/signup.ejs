@@ -1,6 +1,6 @@
 <h1>Signup</h1>
-<%- include ('./partials/messages') %>
-    <form action="/users/signup" method="POST">
+<%- include ('../partials/messages') %>
+    <form action="/auth/signup" method="POST">
         <div>
             <label for="name">Name</label>
             <input type="name" name="name" placeholder="Enter Name"
@@ -32,4 +32,4 @@
             Signup
         </button>
     </form>
-    <p>Have An Account? <a href="/users/login">Login</a></p>
+    <p>Have An Account? <a href="/auth/login">Login</a></p>
