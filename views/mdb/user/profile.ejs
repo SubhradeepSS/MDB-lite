@@ -1,0 +1,22 @@
+<h1>Username: <%= user.username %> </h1>
+<p>
+    <strong>Name: </strong><%= user.name %> <br>
+    <strong>Email: </strong><%= user.email %> 
+</p>
+
+<div>
+    <h1>Editing Profile</h1>
+    <form action="/mdb/profile/" method="post">
+        <label for="name">Name</label>
+        <input required type="text" value="<%= user.name %>" name="name" placeholder="Name">
+        
+        <label for="email">Email</label>
+        <input required type="email" value="<%= user.email %>" name="email" placeholder="Email">
+        
+        <input required type="submit" value="Edit Profile">
+    </form>
+</div>
+
+
+<br>
+<a href="/mdb/">Home</a>
