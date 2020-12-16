@@ -12,6 +12,13 @@ const {
     } = require('../controllers/movie')
 
 const { editProfile, editProfileSubmit } = require('../controllers/profile')
+const { 
+        getRatings, 
+        addRating,
+        getYourRatings,
+        editYourRating,
+        deleteYourRating,
+    } = require('../controllers/rating')
 
 
 router.get('/', ensureAuthenticated, (req, res) => {
@@ -34,5 +41,12 @@ router.get('/profile', ensureAuthenticated, editProfile)
 router.post('/profile', ensureAuthenticated, editProfileSubmit)
 
 
+router.get('/movies/:name/ratings', ensureAuthenticated, getRatings)
+router.post('/movies/:name/ratings', ensureAuthenticated, addRating)
+
+
+router.get('/ratings', ensureAuthenticated, getYourRatings)
+router.post('/ratings', ensureAuthenticated, editYourRating)
+router.post('/ratings/delete', ensureAuthenticated, deleteYourRating)
 
 module.exports = router

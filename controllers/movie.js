@@ -1,4 +1,5 @@
 const { Movie } = require('../models/movie')
+const { Rating } = require('../models/rating')
 
 const handleMovieAdd = (req, res) => {
     const newMovie = new Movie(req.body)
@@ -22,8 +23,12 @@ const getMovie = (req, res) => {
 }
 
 const deleteMovie = (req, res) => {
-    Movie.findOneAndDelete({ name: req.params.name }).then(() => {
-        res.redirect('/mdb/movies')
+    Movie.findOne({ name: req.params.name }).then(movie => {
+        Rating.deleteMany({ movie }).then(() => {
+            movie.remove().then(() => {
+                res.redirect('/mdb/movies')
+            })
+        })
     })
 }
 

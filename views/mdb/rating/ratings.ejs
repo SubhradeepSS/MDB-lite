@@ -1,0 +1,28 @@
+<h1>Your ratings: </h1>
+
+<ul>
+    <% for (let rating of ratings) { %>
+        <li>
+            Movie: <a href="/mdb/movies/<%= rating.movie.name %>"><%= rating.movie.name %> </a><br>
+            Rating: <%= rating.rating %> <br> 
+            Review: <%= rating.review %> <br>
+            <br>
+            <form action="/mdb/ratings" method="post">
+                <input type="hidden" name="id" value="<%= rating._id %>">
+                <input required type="number" name="rating" placeholder="Rating"><br>
+                <textarea name="review" cols="30" rows="5" placeholder="Review"></textarea><br>
+                <input type="submit" value="Edit rating">
+            </form> 
+
+            <form action="/mdb/ratings/delete" method="post">
+                <input type="hidden" name="id" value="<%= rating._id %>">
+                <input type="submit" value="Delete rating">
+            </form>
+        </li>
+        <br>
+    <% } %>
+</ul>
+
+
+<br>
+<a href="/mdb/">Home</a>

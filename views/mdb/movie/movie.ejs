@@ -5,14 +5,17 @@
 <p>
     <strong>Duration:</strong> <%= movie.duration %> <br>
     <strong>Language:</strong> <%= movie.language %> <br>
-    <strong>Release date:</strong> <%= movie.releaseDate %> <br>
-       
+    <strong>Release date:</strong> <%= movie.releaseDate %> <br> 
 </p>
 
 <% if(user.username === 'admin') { %>
     <a href="/mdb/movies/edit/<%= movie.name %>">Edit movie</a> <br>
     <a href="/mdb/movies/delete/<%= movie.name %>">Delete movie</a> 
 <% } %> 
+
+<div>
+    <a href="/mdb/movies/<%= movie.name %>/ratings">View Ratings of the movie</a>
+</div>
 
 <br>
 <a href="/mdb/">Home</a>

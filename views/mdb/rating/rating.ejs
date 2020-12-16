@@ -1,0 +1,55 @@
+<h1>
+    Movie: <%= movie.name %> 
+</h1>
+
+<h2>
+    Average rating: <%= avgRating  %>
+</h2>
+
+<% if(!UserRated) { %>
+    <h2>Rate the movie</h2>
+    <form action="/mdb/movies/<%= movie.name %>/ratings" method="post">
+        <label for="rating">Rating</label>
+        <input required type="number" name="rating" placeholder="Rating">
+        <br>
+        <br>
+        <label for="review">Review</label>
+        <textarea name="review" cols="30" rows="5"></textarea>
+        <br>
+        <br><br>
+        <input type="submit" value="Rate">
+    </form>
+<% } %> 
+
+<div>
+    <h2>Ratings of the movie:</h2>
+    <div>
+        <ul>
+            <% for (let rating of ratings) { %>
+                <li>
+                    Rating: <%= rating.rating %> <br> 
+                    Review: <%= rating.review %> <br>
+                    User: <%= rating.user.username %> <br> 
+
+                    <% if(rating.user.username === user.username) { %>
+                        <a href="/mdb/ratings">Edit your rating</a><br>
+                    <% } %>
+                    
+                    <% if(user.username === 'admin') { %>
+                        <br>
+                        <form action="/mdb/ratings/delete" method="post">
+                            <input type="hidden" name="id" value="<%= rating._id %>">
+                            <input type="submit" value="Delete rating">
+                        </form>
+                    <% } %> 
+                </li>
+                <br>
+                <br>
+            <% } %>
+        </ul>
+    </div>
+</div>
+
+
+<br>
+<a href="/mdb/">Home</a>
