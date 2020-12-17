@@ -17,5 +17,34 @@
     <a href="/mdb/movies/<%= movie.name %>/ratings">View Ratings of the movie</a>
 </div>
 
+<div>
+    <h2>Add a blog related to the movie</h2>
+    <form action="/mdb/movies/<%= movie.name %>/blog/add" method="post">
+        <input type="hidden" name="name" value="<%= movie.name %>">
+
+        <label for="title">Title:</label>
+        <input type="text" name="title" placeholder="Title">
+        <br>
+        <label for="content">Content:</label><br>
+        <textarea name="content" cols="50" rows="10" placeholder="Content"></textarea>
+        <br>
+        <input type="submit" value="Add">
+    </form>
+</div>
+
+<div>
+    <h2>Blogs related to the movie</h2>
+    <ul>
+        <% for(let blog of blogs) { %>
+            <li>
+                <form action="/mdb/movies/<%= movie.name %>/blog" method="post">
+                    <input type="hidden" name="id" value="<%= blog._id %>">
+                    <input type="submit" value="<%= blog.title %>">
+                </form>
+                <br>
+            </li>
+        <% } %> 
+    </ul>
+</div>
 <br>
 <a href="/mdb/">Home</a>

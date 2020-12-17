@@ -1,5 +1,6 @@
 const { Movie } = require('../models/movie')
 const { Rating } = require('../models/rating')
+const { Blog } = require('../models/blog')
 
 const handleMovieAdd = (req, res) => {
     const newMovie = new Movie(req.body)
@@ -18,15 +19,19 @@ const getAllMovies = (req, res) => {
 
 const getMovie = (req, res) => {
     Movie.findOne({ name: req.params.name }).then(movie => {
-        res.render('mdb/movie/movie', { movie, user: req.user })
+        Blog.find({ movie }).then(blogs => {
+            res.render('mdb/movie/movie', { movie, user: req.user, blogs })
+        })
     })
 }
 
 const deleteMovie = (req, res) => {
     Movie.findOne({ name: req.params.name }).then(movie => {
         Rating.deleteMany({ movie }).then(() => {
-            movie.remove().then(() => {
-                res.redirect('/mdb/movies')
+            Blog.deleteMany({ movie }).then(() => {
+                movie.remove().then(() => {
+                    res.redirect('/mdb/movies')
+                })
             })
         })
     })
