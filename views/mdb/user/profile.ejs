@@ -4,19 +4,28 @@
     <strong>Email: </strong><%= user.email %> 
 </p>
 
-<div>
-    <h1>Editing Profile</h1>
-    <form action="/mdb/profile/" method="post">
-        <label for="name">Name</label>
-        <input required type="text" value="<%= user.name %>" name="name" placeholder="Name">
-        
-        <label for="email">Email</label>
-        <input required type="email" value="<%= user.email %>" name="email" placeholder="Email">
-        
-        <input required type="submit" value="Edit Profile">
-    </form>
-</div>
+<% if(authUser.username === user.username) { %> 
+    <div>
+        <h1>Edit Profile</h1>
+        <form action="/mdb/profile/<%= authUser.username %>" method="post">
+            <label for="name">Name</label>
+            <input required type="text" value="<%= authUser.name %>" name="name" placeholder="Name">
+            
+            <label for="email">Email</label>
+            <input required type="email" value="<%= authUser.email %>" name="email" placeholder="Email">
+            
+            <input required type="submit" value="Edit Profile">
+        </form>
+    </div>
+<% } %> 
+<br>
 
+<% if(authUser.username === 'admin') { %>
+    <form action="/mdb/users/delete" method="post">
+        <input type="hidden" name="username" value="<%= user.username %>">
+        <input type="submit" value="Delete user">
+    </form> 
+<% } %> 
 
 <br>
 <a href="/mdb/">Home</a>

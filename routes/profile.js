@@ -6,8 +6,8 @@ const { ensureAuthenticated } = require("../conf/auth.js")
 const { editProfile, editProfileSubmit } = require('../controllers/profile')
 
 
-router.get('/', ensureAuthenticated, editProfile)
-router.post('/', ensureAuthenticated, editProfileSubmit)
+router.get('/:username', ensureAuthenticated, editProfile)
+router.post('/:username', ensureAuthenticated, editProfileSubmit)
 
 
 module.exports = router

@@ -1,14 +1,15 @@
 <h1> Welcome <%= user.name %></h1>
 
 <% if(user.username === 'admin') { %>
-    <a href="/mdb/movies/addMovie">Add Movie</a>
+    <a href="/mdb/movies/addMovie">Add Movie</a><br>
+    <a href="/mdb/users/">View all Users</a>
 <% } %>
 
 <br>
 <a href="/mdb/movies">All Movies</a>
 
 <br>
-<a href="/mdb/profile">Your profile</a>
+<a href="/mdb/profile/<%= user.username %>">Your profile</a>
 
 <br>
 <a href="/mdb/ratings">Your ratings</a>

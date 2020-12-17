@@ -1,0 +1,19 @@
+<h1>All Users</h1>
+
+<div>
+    <ul>
+        <% for(let user of users) { %>
+            <% if(user.username != 'admin') { %> 
+                <li>
+                    <h3><%= user.username %></h3> 
+                    <a href="/mdb/profile/<%= user.username %>">View profile</a>
+                    <br>
+                </li>
+            <% } %> 
+        <% } %> 
+    </ul>
+</div>
+
+
+<br>
+<a href="/mdb/">Home</a>

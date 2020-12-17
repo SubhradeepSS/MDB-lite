@@ -1,7 +1,9 @@
-const User = require('../models/user')
+const { User } = require('../models/user')
 
 const editProfile = (req, res) => {
-    res.render('mdb/user/profile', { user: req.user })
+    User.findOne({ username:req.params.username }).then(user => {
+        res.render('mdb/user/profile', { authUser: req.user, user })
+    }) 
 }
 
 const editProfileSubmit = (req, res) => {
@@ -9,7 +11,7 @@ const editProfileSubmit = (req, res) => {
     user.email = req.body.email
     user.name = req.body.name
     user.save()
-    res.redirect('/mdb/profile')
+    res.redirect('/mdb/')
 }
 
 
