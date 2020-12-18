@@ -3,10 +3,32 @@
 <strong>Published by:</strong>  <%= blog.user.username %> <br>
 <strong>Published on:</strong>  <%= blog.createdAt %>
 
+<% if(blog.user.username === authUser.username) { %>
+    <h3>Edit this blog</h3>
+    <form action="/mdb/blog/edit" method="post">
+        <input type="hidden" name="id" value="<%= blog._id %>">
+
+        <label for="title">Title:</label>
+        <input required type="text" name="title" placeholder="Title">
+        <br>
+        <label for="content">Content:</label><br>
+        <textarea required name="content" cols="40" rows="8" placeholder="Content"></textarea>
+        <br>
+        <input type="submit" value="Edit">
+    </form>
+<% } %>  
+<br>
+<% if(blog.user.username === authUser.username || authUser.username === 'admin') { %>
+    <form action="/mdb/blog/delete" method="post">
+        <input type="hidden" name="id" value="<%= blog._id %>">
+        <input type="submit" value="Delete this blog">
+    </form>
+<% } %> 
+
 <div>
     <h2>Add a comment</h2>
     <form action="/mdb/movies/comment" method="post">
-        <input type="hidden" name="id" value="<%= blog._id %>"><br>
+        <input type="hidden" name="id" value="<%= blog._id %>">
         <textarea name="comment" cols="30" rows="5"></textarea><br>
         <input type="submit" value="Comment">
     </form>

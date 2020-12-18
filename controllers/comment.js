@@ -5,7 +5,7 @@ const addComment = (req, res) => {
     let newComment = new Comment()
     newComment.user = req.user
     newComment.comment = req.body.comment
-    Blog.findOne({ _id: req.body.id }).then(blog => {
+    Blog.findById( req.body.id ).then(blog => {
         newComment.save().then(() => {
             blog.comments.push(newComment)
             blog.save().then(() => {
@@ -15,4 +15,13 @@ const addComment = (req, res) => {
     })
 }
 
-module.exports = { addComment }
+const editComment = (req, res) => {
+    
+}
+
+const deleteComment = (req, res) => {
+   
+}
+
+
+module.exports = { addComment, editComment, deleteComment }
