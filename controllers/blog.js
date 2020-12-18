@@ -38,4 +38,10 @@ const deleteBlog = (req, res) => {
     })
 }
 
-module.exports = { getBlog, addBlog, editBlog, deleteBlog }
+const getYourBlogs = (req, res) => {
+    Blog.find({ user: req.user }).then(blogs => {
+        res.render('mdb/blog/blogs', { blogs })
+    })
+}
+
+module.exports = { getBlog, addBlog, editBlog, deleteBlog, getYourBlogs }

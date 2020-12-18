@@ -1,0 +1,15 @@
+<h1>Your blogs:</h1>
+
+<div>
+    <ul>
+        <% for(let blog of blogs) { %>
+            <li>
+                <form action="/mdb/movies/<%= blog.movie.name %>/blog" method="post">
+                    <input type="hidden" name="id" value="<%= blog._id %>">
+                    <input type="submit" value="<%= blog.title %>">
+                </form>
+                <br>
+            </li>
+        <% } %> 
+    </ul> 
+</div>
