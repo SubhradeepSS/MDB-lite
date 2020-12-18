@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema
 
 const { UserSchema } = require('./user')
-const { BlogSchema } = require('./blog')
 
 const CommentSchema = new Schema({
     comment: {
@@ -11,10 +10,6 @@ const CommentSchema = new Schema({
     },
     user: {
         type: UserSchema,
-        required: true
-    },
-    blog: {
-        type: BlogSchema,
         required: true
     }
 }, {

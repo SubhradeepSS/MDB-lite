@@ -6,9 +6,11 @@ const addComment = (req, res) => {
     newComment.user = req.user
     newComment.comment = req.body.comment
     Blog.findOne({ _id: req.body.id }).then(blog => {
-        newComment.blog = blog
         newComment.save().then(() => {
-            res.redirect('/mdb/movies')
+            blog.comments.push(newComment)
+            blog.save().then(() => {
+                res.redirect('/mdb/movies')
+            })
         })
     })
 }

@@ -4,9 +4,7 @@ const { Movie } = require('../models/movie')
 
 const getBlog = (req, res) => {
     Blog.findOne({ _id: req.body.id }).then(blog => {
-        Comment.find({ blog }).then(comments => {
-            res.render('mdb/blog/blog', { blog, comments })
-        })
+        res.render('mdb/blog/blog', { blog })
     })
 }
 

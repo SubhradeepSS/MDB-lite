@@ -3,6 +3,7 @@ const Schema = mongoose.Schema
 
 const { UserSchema } = require('./user')
 const { MovieSchema } = require('./movie')
+const { CommentSchema } = require('./comment')
 
 const BlogSchema = new Schema({
     title: {
@@ -20,7 +21,8 @@ const BlogSchema = new Schema({
     movie: {
         type: MovieSchema,
         required: true
-    }
+    },
+    comments: [ CommentSchema ]
 },
     {
         timestamps: true

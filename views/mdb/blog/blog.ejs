@@ -15,7 +15,7 @@
 <h2>Comments: </h2>
 <div>
     <ul>
-        <% for(let comment of comments) { %>
+        <% for(let comment of blog.comments) { %>
             <li>
                 <p><%= comment.comment %> </p>
                 <strong>by:</strong> <%= comment.user.username %> <br>
