@@ -1,0 +1,15 @@
+<h1>Your comments</h1>
+
+<ul>
+    <% for(let comment of comments) { %> 
+        <li>
+            <%= comment.comment %> <br>
+            <strong>on:</strong> <%= comment.createdAt %>   
+            <br>
+        </li>
+    <% } %> 
+</ul>
+
+
+<br>
+<a href="/mdb/">Home</a>

@@ -3,10 +3,11 @@ const router = express.Router()
 
 const { ensureAuthenticated } = require("../conf/auth.js")
 
-const { editComment, deleteComment } = require('../controllers/comment')
+const { editComment, deleteComment, getYourComments } = require('../controllers/comment')
 
 router.post('/edit', ensureAuthenticated, editComment)
 router.post('/delete', ensureAuthenticated, deleteComment)
+router.get('/', ensureAuthenticated, getYourComments)
 
 
 module.exports = router

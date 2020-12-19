@@ -11,6 +11,11 @@ const CommentSchema = new Schema({
     user: {
         type: UserSchema,
         required: true
+    },
+    blog: {
+        type: mongoose.Schema.Types.ObjectID,
+        required: true,
+        ref: 'Blog'
     }
 }, {
     timestamps: true

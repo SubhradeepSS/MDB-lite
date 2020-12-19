@@ -4,7 +4,9 @@ const { Movie } = require('../models/movie')
 
 const getBlog = (req, res) => {
     Blog.findOne({ _id: req.body.id }).then(blog => {
-        res.render('mdb/blog/blog', { blog, authUser: req.user })
+        Comment.find({ blog: blog._id }).then(comments => {
+            res.render('mdb/blog/blog', { blog, authUser: req.user, comments })
+        }) 
     })
 }
 
@@ -33,8 +35,12 @@ const editBlog = (req, res) => {
 }
 
 const deleteBlog = (req, res) => {
-    Blog.findByIdAndDelete(req.body.id).then(() => {
-        res.redirect('/mdb/movies')
+    Blog.findById(req.body.id).then(blog => {
+        Comment.deleteMany({ blog:blog._id }).then(() => {
+            blog.remove().then(() => {
+                res.redirect('/mdb/movies')
+            })
+        })
     })
 }
 

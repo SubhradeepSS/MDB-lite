@@ -37,11 +37,29 @@
 <h2>Comments: </h2>
 <div>
     <ul>
-        <% for(let comment of blog.comments) { %>
+        <% for(let comment of comments) { %>
             <li>
                 <p><%= comment.comment %> </p>
                 <strong>by:</strong> <%= comment.user.username %> <br>
                 <strong>on:</strong> <%= comment.createdAt %> <br>
+
+                <% if(comment.user.username === authUser.username) { %>
+                    <h3>Edit this comment</h3>
+                    <form action="/mdb/comment/edit" method="post">
+                        <input type="hidden" name="id" value="<%= comment._id %>">
+                        <label for="comment">Comment:</label>
+                        <input required type="text" name="comment">
+                        <br>
+                        <input type="submit" value="Edit">
+                    </form>
+                <% } %>  
+                <% if(comment.user.username === authUser.username || authUser.username === 'admin') { %>
+                    <form action="/mdb/comment/delete" method="post">
+                        <input type="hidden" name="id" value="<%= comment._id %>">
+                        <input type="submit" value="Delete this comment">
+                    </form>
+                <% } %> 
+
                 <br>
             </li>
         <% } %> 
