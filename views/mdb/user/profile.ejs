@@ -6,7 +6,7 @@
 
 <% if(authUser.username === user.username) { %> 
     <div>
-        <h1>Edit Profile</h1>
+        <h2>Edit Profile</h2>
         <form action="/mdb/profile/<%= authUser.username %>" method="post">
             <label for="name">Name</label>
             <input required type="text" value="<%= authUser.name %>" name="name" placeholder="Name">
@@ -25,6 +25,16 @@
         <input type="hidden" name="username" value="<%= user.username %>">
         <input type="submit" value="Delete user">
     </form> 
+<% } %> 
+
+
+<% if(authUser.username === user.username) { %> 
+<h2>Search a user</h2>
+<form action="/mdb/profile/search" method="post">
+    <label for="username">Search a user by username</label>
+    <input type="text" name="username" placeholder="Username">
+    <input type="submit" value="Search">
+</form>
 <% } %> 
 
 <br>

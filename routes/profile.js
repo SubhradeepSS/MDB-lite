@@ -3,11 +3,12 @@ const router = express.Router()
 
 const { ensureAuthenticated } = require("../conf/auth.js")
 
-const { editProfile, editProfileSubmit } = require('../controllers/profile')
+const { viewProfile, editProfile, searchProfile } = require('../controllers/profile')
 
 
-router.get('/:username', ensureAuthenticated, editProfile)
-router.post('/:username', ensureAuthenticated, editProfileSubmit)
+router.post('/search', ensureAuthenticated, searchProfile)
+router.get('/:username', ensureAuthenticated, viewProfile)
+router.post('/:username', ensureAuthenticated, editProfile)
 
 
 module.exports = router
