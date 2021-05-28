@@ -1,11 +1,8 @@
 {
   "name": "MDB-lite",
   "version": "1.0.0",
-  "engines": {
-    "node": "14.17.0"
-    },
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
