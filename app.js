@@ -6,9 +6,12 @@ const flash = require('connect-flash');
 const passport = require('passport');
 require("./conf/passport")(passport)
 
-const db = require('./config/creds')
+const dotenv = require('dotenv');
+dotenv.config();
+
+const db = process.env.DB
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
 
 
 mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
