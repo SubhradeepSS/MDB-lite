@@ -16,8 +16,6 @@
   </p>
 </p>
 
-
-
 <!-- TABLE OF CONTENTS -->
 <details open="open">
   <summary>Table of Contents</summary>
@@ -47,29 +45,34 @@
   </ol>
 </details>
 
-
-
 <!-- ABOUT THE PROJECT -->
+
 ## About The Project
+
 A movie management system built using NodeJS, ExpressJS and MongoDB consisting of CRUD features like ratings and blogs for movies, and comments(replies) for a particular blog. Admin have some privileged permissions like CRUD operations for movies, delete any blog/comment/user account. Users can update their profile and also view others’ profile by searching by username.
 
 ### Built With
-Major Frameworks/Libraries used:
-* [NodeJS](https://nodejs.org/en/)
-* [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
-* [ExpressJS](https://expressjs.com/)
 
+Major Frameworks/Libraries used:
+
+- [NodeJS](https://nodejs.org/en/)
+- [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+- [ExpressJS](https://expressjs.com/)
 
 <!-- GETTING STARTED -->
+
 ## Getting Started
+
 To setup the project locally, follow the given steps:
 
 ### Prerequisites
+
 Following software needs to be setup in the system:
-* [git](https://git-scm.com/downloads)
-* [github-cli](https://github.com/cli/cli) (optional)
-* [nodejs](https://nodejs.org/en/)
-* Either [mongodb](https://www.mongodb.com/) installed or [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) account (please refer to corresponding links to setup respective software)
+
+- [git](https://git-scm.com/downloads)
+- [github-cli](https://github.com/cli/cli) (optional)
+- [nodejs](https://nodejs.org/en/)
+- Either [mongodb](https://www.mongodb.com/) installed or [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) account (please refer to corresponding links to setup respective software)
 
 ### Installation
 
@@ -92,38 +95,52 @@ Following software needs to be setup in the system:
    ```
 
 <!-- USAGE EXAMPLES -->
+
 ## Usage
+
 ### Local
+
 For running the project, navigate to the project directory and follow the given instructions:
 
-* Open terminal/cli and run:
-    ```sh
-    nodemon app.js
+- For running the development server,Open terminal/cli and run:
+  ```sh
+    npm run dev
   ```
-    Open http://localhost:3000/ in browser and the login page of the project will open.
-* Create a user(by signing up from the site itself) with username: **admin** so as to give the user privileged permissions of an admin.
+- For tesing the server :
 
-* New users can signup by providing details and existing users can login with their credentials.
+  ```sh
+    npm run start
+  ```
 
+- Open http://localhost:3000/ in browser and the login page of the project will open.
+
+- Create a user(by signing up from the site itself) with username: **admin** so as to give the user privileged permissions of an admin.
+
+- New users can signup by providing details and existing users can login with their credentials.
 
 ### Deployment
+
 View deployed site [here](https://mdb-v1.herokuapp.com/).
 **NOTE**: the deployment might not function always since mongodb-atlas requires whitelisting of IPs to access the database.
-##### Credentials for admin:
-| User Type      | Username | Password |
-| ----------- | ----------- | -----------|
-| admin      | admin       | password |
-| normal user   | user        | password |
 
+##### Credentials for admin:
+
+| User Type   | Username | Password |
+| ----------- | -------- | -------- |
+| admin       | admin    | password |
+| normal user | user     | password |
 
 ## TO-DO
-Following features/enhancements are thought to be added later:
-* UI enhancement.
-* Implement **```CASCADE```** delete for mongoose models.
 
+Following features/enhancements are thought to be added later:
+
+- UI enhancement.
+- Implement **`CASCADE`** delete for mongoose models.
 
 <!-- CONTRIBUTING -->
+
 ## Contributing
+
 Any contributions made to the project are **greatly appreciated**.
 
 1. Fork the Project
