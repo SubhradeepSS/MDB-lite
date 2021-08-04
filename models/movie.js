@@ -56,6 +56,9 @@ const Rating = mongoose.model("Rating", RatingSchema);
 /**
  * Inside pre hook, dont use ES6 syntax for callbacks. Will give errors
  * mongoose doesn't support this.
+ *
+ * This will only work if we do document.remove();
+ * Won't work for Model.remove()
  */
 MovieSchema.pre("remove", { document: true, query: false }, function (next) {
   Rating.remove({ movie: this }).exec();
