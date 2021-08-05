@@ -102,11 +102,11 @@ Following software needs to be setup in the system:
 
 For running the project, navigate to the project directory and follow the given instructions:
 
-- For running the development server,Open terminal/cli and run:
+- For running the development server, open terminal/cli and run:
   ```sh
     npm run dev
   ```
-- For tesing the server :
+- For tesing the server:
 
   ```sh
     npm run start
