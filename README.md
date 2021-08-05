@@ -106,7 +106,7 @@ For running the project, navigate to the project directory and follow the given 
   ```sh
     npm run dev
   ```
-- For tesing the server:
+- For testing the server:
 
   ```sh
     npm run start
