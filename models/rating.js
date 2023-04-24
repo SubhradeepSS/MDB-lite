@@ -1,28 +1,32 @@
-const mongoose = require('mongoose')
-const Schema = mongoose.Schema
+/**
+ * Shifted the Rating Model to the Movie model JS
+ */
 
-const { UserSchema } = require('./user')
-const { MovieSchema } = require('./movie')
+// const mongoose = require("mongoose");
+// const Schema = mongoose.Schema;
 
-const RatingSchema = new Schema({
-    rating: {
-        type: Number,
-        required: true
-    },
-    review: {
-        type: String,
-        required: false
-    },
-    user: {
-        type: UserSchema,
-        required: true
-    },
-    movie: {
-        type: MovieSchema,
-        required: true
-    }
-})
+// const { UserSchema } = require("./user");
+// const { MovieSchema } = require("./movie");
 
-const Rating = mongoose.model('Rating', RatingSchema)
+// const RatingSchema = new Schema({
+//   rating: {
+//     type: Number,
+//     required: true,
+//   },
+//   review: {
+//     type: String,
+//     required: false,
+//   },
+//   user: {
+//     type: UserSchema,
+//     required: true,
+//   },
+//   movie: {
+//     type: MovieSchema,
+//     required: true,
+//   },
+// });
 
-module.exports = { RatingSchema, Rating }
+// const Rating = mongoose.model("Rating", RatingSchema);
+
+// module.exports = { RatingSchema, Rating };
